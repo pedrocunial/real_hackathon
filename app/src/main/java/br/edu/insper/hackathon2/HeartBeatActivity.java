@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,10 +17,14 @@ public class HeartBeatActivity extends AppCompatActivity {
 
     private int heartbeat;
     private Random r;
-    private final int high = 260;
-    private final int low = 100;
+    private final int high = 240;
+    private final int low = 140;
     private TextView mensagem;
     private final String frase = "Seu pai morreu";
+    private View redCircle;
+    private View greenCircle;
+    private View yellowCircle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +34,29 @@ public class HeartBeatActivity extends AppCompatActivity {
 
         r = new Random();
 
-        heartbeat = r.nextInt(140 - low) + low;
+        this.redCircle = (View) findViewById(R.id.red_circle);
+        this.greenCircle = (View) findViewById(R.id.green_circle);
+        this.yellowCircle = (View) findViewById(R.id.yellow_circle);
+
+
+        heartbeat = r.nextInt(180 - low) + low;
         this.mensagem = (TextView) findViewById(R.id.text_heart_beat);
+
+        if(heartbeat >= 200) {
+            this.redCircle.setVisibility(View.VISIBLE);
+            this.greenCircle.setVisibility(View.INVISIBLE);
+            this.yellowCircle.setVisibility(View.INVISIBLE);
+        } else if(heartbeat >= 160) {
+            this.redCircle.setVisibility(View.INVISIBLE);
+            this.greenCircle.setVisibility(View.INVISIBLE);
+            this.yellowCircle.setVisibility(View.VISIBLE);
+        } else {
+            this.redCircle.setVisibility(View.INVISIBLE);
+            this.greenCircle.setVisibility(View.VISIBLE);
+            this.yellowCircle.setVisibility(View.INVISIBLE);
+        }
+
+
 
         assert this.mensagem != null;
         this.mensagem.setText(String.valueOf(heartbeat));
@@ -47,8 +73,22 @@ public class HeartBeatActivity extends AppCompatActivity {
                 heartbeat = r.nextInt(high - low) + low;
                 System.out.println(heartbeat);
                 mensagem.setText(String.valueOf(heartbeat));
+                if(heartbeat >= 200) {
+                    redCircle.setVisibility(View.VISIBLE);
+                    greenCircle.setVisibility(View.INVISIBLE);
+                    yellowCircle.setVisibility(View.INVISIBLE);
+                } else if(heartbeat >= 160) {
+                    redCircle.setVisibility(View.INVISIBLE);
+                    greenCircle.setVisibility(View.INVISIBLE);
+                    yellowCircle.setVisibility(View.VISIBLE);
+                } else {
+                    redCircle.setVisibility(View.INVISIBLE);
+                    greenCircle.setVisibility(View.VISIBLE);
+                    yellowCircle.setVisibility(View.INVISIBLE);
+                }
 
-                if (heartbeat > 250) {
+
+                if (heartbeat > 220) {
                     mensagem.setText("0");
                     Toast.makeText(HeartBeatActivity.this, "Morreu!", Toast.LENGTH_SHORT).show();
                     ligar("996003399");
