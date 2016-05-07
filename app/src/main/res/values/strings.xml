@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vovo</string>
+    <string name="monitoramento_glicose">Monitoramento Glicose</string>
+    <string name="monitoramento_temperatura">Monitoramento Temperatura</string>
+    <string name="monitoramento_cardiaco">Monitoramento Cardiaco</string>
+    <string name="escolha_o_fator_ser_monitorado">Escolha o fator à ser monitorado</string>
+    <string name="monitoramento_movimenta_o">Monitoramento Movimentação</string>
+    <string name="monitoramento_oxigena_o">Monitoramento Oxigenação</string>
+</resources>
