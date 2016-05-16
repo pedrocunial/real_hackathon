@@ -20,7 +20,7 @@ public class HeartBeatActivity extends AppCompatActivity {
     private final int high = 240;
     private final int low = 140;
     private TextView mensagem;
-    private final String frase = "Seu pai morreu";
+    private final String frase = "Seu pai pode estar correndo perigo!";
     private View redCircle;
     private View greenCircle;
     private View yellowCircle;
@@ -89,10 +89,8 @@ public class HeartBeatActivity extends AppCompatActivity {
 
 
                 if (heartbeat > 220) {
-                    mensagem.setText("0");
-                    Toast.makeText(HeartBeatActivity.this, "Morreu!", Toast.LENGTH_SHORT).show();
                     ligar("996003399");
-                    this.cancel();
+                    
                 } else {
                     this.start();
                 }

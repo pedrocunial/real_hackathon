@@ -18,7 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HeartBeatActivity"></activity>
+        <activity android:name=".HeartBeatActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".TempActivity" />
+        <activity android:name=".MoveActivity" />
+        <activity android:name=".OxigenActivity"></activity>
     </application>
 
 </manifest>
